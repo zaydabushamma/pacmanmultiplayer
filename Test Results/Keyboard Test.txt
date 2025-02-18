@@ -1,0 +1,10 @@
+KEYBOARD TEST STARTED - December 6 2023 - 4:58 PM
+Test W: pass - pass - pass
+Test S: pass - pass - pass
+Test A: pass - pass - pass
+Test D: pass - pass - pass
+Test Up: pass - pass - pass
+Test Down: pass - pass - pass
+Test Left: pass - pass - pass
+Test Right: pass - pass - pass
+KEYBOARD TEST FINISHED - 4:58 PM

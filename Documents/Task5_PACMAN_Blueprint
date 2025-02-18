@@ -1,0 +1,142 @@
+
+What Specific emulator did you find? and where can other get it, find it, or download it?
+one of the most popular is called MAME. You can download MAME for free from its official website: https://www.mamedev.org/
+Other original pac mans:
+https://www.pacman1.net/
+https://pacman.live/play.html
+
+
+
+What are the different ways of scoring points in pac man, and how many points are different actions worth?
+
+Eating a dot: 10 points
+Eating a power pellet: 50 points
+Eating a ghost after eating a power pellet: 200 points (increases by 200 each time)
+Eating a fruit: 100-1000 points (depending on the fruit)
+
+What happens to PAC-MAN when you drive him into a wall?(We need to know this one for when we integrate te keyboard into controller player movement).
+
+When Pac-Man drives into a wall, he stops moving and is unable to change direction until he releases the control button.
+
+
+If you let go of the controls, does PAC-MAN freeze in place? OR does he keep moving until he hits a wall?
+ 
+Pac-Man will continue moving in the direction he was last going until he hits a wall.
+
+What is the list of different fruits/bonus items that appear in the game? On what levels do the different items appear?
+
+
+Fruit/bonus item	  Levels	                                 Points
+Cherry	            10, 14, 18, 22, 26	                     100 points
+Strawberry	        11, 15, 19, 23, 27	                     300 points
+Orange	            12, 16, 20, 24, 28	                     500 points
+Apple	             13, 17, 21, 25, 29	                     700 points
+Melon	             17, 21, 25, 29	                         1000 points
+Bell	              2, 5, 8, 11, 14, 17, 20, 23, 26	        50 points
+Key	               7, 10, 13, 16, 19, 22, 25, 28          	100 points
+
+
+
+
+Possible Implementations:
+PacMan(int x, int y): This constructor creates a new Pac-Man object at the specified coordinates.
+move(): This method moves Pac-Man in the direction that he is facing.
+eatPacDot(int points): This method adds the specified number of points to Pac-Man's score when he eats a pac-dot.
+eatPowerPellet(int points): This method adds the specified number of points to Pac-Man's score and makes the ghosts blue for a short period of time when he eats a power pellet.
+eatGhost(int points): This method adds the specified number of points to Pac-Man's score and kills the ghost when he eats a ghost while it is blue.
+eatFruit(int points): This method adds the specified number of points to Pac-Man's score when he eats a fruit.
+isCollidingWithWall(): This method checks if Pac-Man is colliding with a wall.
+isCollidingWithGhost(): This method checks if Pac-Man is colliding with a ghost.
+
+public class PacMan {
+
+    private int x;
+    private int y;
+    private int direction;
+
+    public PacMan(int x, int y) {
+        this.x = x;
+        this.y = y;
+        this.direction = Direction.UP;
+    }
+
+    public void move() {
+        switch (direction) {
+            case Direction.UP:
+                y--;
+                break;
+            case Direction.DOWN:
+                y++;
+                break;
+            case Direction.LEFT:
+                x--;
+                break;
+            case Direction.RIGHT:
+                x++;
+                break;
+        }
+    }
+
+    public void eatPacDot(int points) {
+        score += points;
+    }
+
+    public void eatPowerPellet(int points) {
+        score += points;
+        ghostsAreBlue = true;
+    }
+
+    public void eatGhost(int points) {
+        score += points;
+        ghostsAreBlue = false;
+    }
+
+    public void eatFruit(int points) {
+        score += points;
+    }
+
+    public boolean isCollidingWithWall() {
+        // TODO: Implement this method to check if Pac-Man is colliding with a wall.
+        return false;
+    }
+
+    public boolean isCollidingWithGhost() {
+        // TODO: Implement this method to check if Pac-Man is colliding with a ghost.
+        return false;
+    }
+
+    // ...
+}
+
+
+
+
+
+// Create a new Pac-Man object at the center of the maze.
+PacMan pacman = new PacMan(100, 100);
+
+// Move Pac-Man in the direction that he is facing.
+pacman.move();
+
+// Check if Pac-Man is colliding with a wall.
+if (pacman.isCollidingWithWall()) {
+    // TODO: Handle this situation.
+}
+
+// Check if Pac-Man is colliding with a ghost.
+if (pacman.isCollidingWithGhost()) {
+    // TODO: Handle this situation.
+}
+
+// Eat a pac-dot.
+pacman.eatPacDot(10);
+
+// Eat a power pellet.
+pacman.eatPowerPellet(50);
+
+// Eat a ghost.
+pacman.eatGhost(200);
+
+// Eat a fruit.
+pacman.eatFruit(100);
+
